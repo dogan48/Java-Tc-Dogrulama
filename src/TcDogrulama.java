@@ -4,35 +4,35 @@ public class TcDogrulama {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		System.out.print("Tc Kimlik NumarasÄ± giriniz: ");
 		Scanner scanner = new Scanner(System. in);
 		String TC = scanner. nextLine();
 		
 		if(isTC(TC)) 
-			System.out.println("TC Kimlik Numarası Doğrudur. ");
+			System.out.println("TC Kimlik NumarasÃ½ DoÃ°rudur. ");
 		else
-			System.out.println("TC Kimlik Numarası Yanlıştır. ");
+			System.out.println("TC Kimlik NumarasÃ½ YanlÃ½Ã¾tÃ½r. ");
 
 	}
 	
 	public static boolean isTC(String tc) {
-		if(tc.length() < 11 || tc.length() > 11 )	// kontrol edilen dizi 11 hane değil ise tc değildir.
+		if(tc.length() < 11 || tc.length() > 11 )	// kontrol edilen dizi 11 hane deÃ°il ise tc deÃ°ildir.
 			return false;
-		for(int i = 0;i < 11; i++)					// kontrol edilen dizi rakamlardan oluşmuyor ise tc değildir.
+		for(int i = 0;i < 11; i++)					// kontrol edilen dizi rakamlardan oluÃ¾muyor ise tc deÃ°ildir.
 			if(!Character.isDigit(tc.charAt(i)))
 				return false;
 		int TC1 = Integer.parseInt(String.valueOf(tc.charAt(0)));
-		if(TC1 == 0)								// kontrol edilen dizi 0 ile başlıyor ise tc değildir.
+		if(TC1 == 0)								// kontrol edilen dizi 0 ile baÃ¾lÃ½yor ise tc deÃ°ildir.
 			return false;
 		
-		int TC10 = calculateTC10(tc);				// tcnin 10. hanesini hesapla doğruluğunu kontrol et.
+		int TC10 = calculateTC10(tc);				// tcnin 10. hanesini hesapla doÃ°ruluÃ°unu kontrol et.
 		if(TC10 != Integer.parseInt(String.valueOf(tc.charAt(9))))
 			return false;
 		
-		int TC11 = calculateTC11(tc);				// tcnin 11. hanesini hesapla doğruluğunu kontrol et.
+		int TC11 = calculateTC11(tc);				// tcnin 11. hanesini hesapla doÃ°ruluÃ°unu kontrol et.
 		if(TC11 != Integer.parseInt(String.valueOf(tc.charAt(10))))
 			return false;
-													// dizi tüm kontrolleri geçmiş ise tc doğrudur.
+													// dizi tÃ¼m kontrolleri geÃ§miÃ¾ ise tc doÃ°rudur.
 			return true;
 	}
 	
